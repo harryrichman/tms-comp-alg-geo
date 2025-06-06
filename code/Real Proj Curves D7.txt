@@ -1,0 +1,164 @@
+> restart;
+> with(LinearAlgebra);
+> with(numtheory);
+> with(ArrayTools);
+> with(Groebner);
+> with(RandomTools);
+> with(plots);
+> with(combinat);
+> Digits := 100;
+> randomize(100);
+> for b to 10 do
+>     F := 0;
+>     d := 7;
+>     for i from 0 to d do
+>         for j from 0 to d - i do F := F + round(10000*Generate(distribution(Normal(0, sqrt(multinomial(d, i, j, d - i - j))))))*x^i*y^j*z^(d - i - j); end do;
+>     end do;
+>     n := 1;
+>     m := 1;
+>     r := 1;
+>     for j from -100 to 100 do
+>         HJ := Basis({F, z - 1/100*j, x^2 + y^2 + z^2 - 1}, lexdeg([y, z], [x]));
+>         A := {fsolve(HJ[1])};
+>         p := numelems(A);
+>         for k to p do
+>             TT := subs(x = A[k], HJ[3]);
+>             LN[n] := [A[k], fsolve(TT), 1/100*j];
+>             n := n + 1;
+>         end do;
+>     end do;
+>     for j from -100 to 100 do
+>         HJ := Basis({F, x - 1/100*j, x^2 + y^2 + z^2 - 1}, lexdeg([y, x], [z]));
+>         A := {fsolve(HJ[1])};
+>         p := numelems(A);
+>         for k to p do
+>             TT := subs(z = A[k], HJ[3]);
+>             LM[m] := [1/100*j, fsolve(TT), A[k]];
+>             m := m + 1;
+>         end do;
+>     end do;
+>     for j from -100 to 100 do
+>         HJ := Basis({F, y - 1/100*j, x^2 + y^2 + z^2 - 1}, lexdeg([z, y], [x]));
+>         A := {fsolve(HJ[1])};
+>         p := numelems(A);
+>         for k to p do
+>             TT := subs(x = A[k], HJ[3]);
+>             LR[r] := [A[k], 1/100*j, fsolve(TT)];
+>             r := r + 1;
+>         end do;
+>     end do;
+>     pointplot3d({seq(LM[i], i = 1 .. m - 1), seq(LN[i], i = 1 .. n - 1), seq(LR[i], i = 1 .. r - 1)}, color = black, axes = none);
+> end do;
+                             F := 0
+
+                             d := 7
+
+                             n := 1
+
+                             m := 1
+
+                             r := 1
+
+
+                             F := 0
+
+                             d := 7
+
+                             n := 1
+
+                             m := 1
+
+                             r := 1
+
+
+                             F := 0
+
+                             d := 7
+
+                             n := 1
+
+                             m := 1
+
+                             r := 1
+
+
+                             F := 0
+
+                             d := 7
+
+                             n := 1
+
+                             m := 1
+
+                             r := 1
+
+
+                             F := 0
+
+                             d := 7
+
+                             n := 1
+
+                             m := 1
+
+                             r := 1
+
+
+                             F := 0
+
+                             d := 7
+
+                             n := 1
+
+                             m := 1
+
+                             r := 1
+
+
+                             F := 0
+
+                             d := 7
+
+                             n := 1
+
+                             m := 1
+
+                             r := 1
+
+
+                             F := 0
+
+                             d := 7
+
+                             n := 1
+
+                             m := 1
+
+                             r := 1
+
+
+                             F := 0
+
+                             d := 7
+
+                             n := 1
+
+                             m := 1
+
+                             r := 1
+
+
+                             F := 0
+
+                             d := 7
+
+                             n := 1
+
+                             m := 1
+
+                             r := 1
+
+
+;
+> 
+;
